@@ -1,0 +1,103 @@
+body {
+    background: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.75)), url("../img/1291273.jpeg");
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.form {
+    font-family: 'Secular One', sans-serif;
+    font-size: small;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    background: rgba(5, 7, 12, 0.40)
+}
+#api1 {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: sans-serif;
+    color: white;
+}
+script {
+    color: white;
+    font-style: white;
+}
+h2 {
+
+    color: white;
+    font-family: 'Secular One', sans-serif;
+    font-size: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: white;
+    background: rgba(5, 7, 12, 0.40);
+    border: 0.5px solid sienna;
+    
+}
+#conversor {
+    color: white;
+    font-family: 'Secular One', sans-serif;
+    font-size: 16px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: white;
+    background: rgba(5, 7, 12, 0.40);
+}
+
+
+footer i {
+    font-size: 30px;
+}
+
+.carousel-caption {
+    background-color: rgb(202, 101, 16, 0.7);
+    border-radius: 1rem;
+}
+
+#carrusel {
+    margin: 30px auto 30px;
+}
+
+#pass {
+    border: 0.5px solid sienna;
+    color: white;
+}
+
+#name {
+    border: 0.5px solid sienna;
+    color: white;
+}
+
+#email {
+    border: 0.5px solid sienna;
+    color: white;
+}
+
+#confpass {
+    border: 0.5px solid sienna;
+    color: white;
+}
+#prices {
+    border: 0.5px solid sienna;
+    color: white;
+}
+#names {
+    border: 0.5px solid sienna;
+    color: white;
+}
+#descr {
+    border: 0.5px solid sienna;
+    color: white;
+}
+#stock {
+    border: 0.5px solid sienna;
+    color: white;
+}
+
+
+.input {
+    background: rgba(5, 7, 12, 0.30)
+}
+
+

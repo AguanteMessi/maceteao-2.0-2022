@@ -1,0 +1,46 @@
+body {
+    background-image: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.75)), url("static/core/css/img/1291273.jpeg");
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.form {
+    font-family: 'Secular One', sans-serif;
+    font-size: small;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    background: rgba(5, 7, 12, 0.40)
+}
+#api1 {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: sans-serif;
+    color: white;
+}
+script {
+    color: white;
+    font-style: white;
+}
+h2 {
+
+    color: white;
+    font-family: 'Secular One', sans-serif;
+    font-size: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: white;
+    background: rgba(5, 7, 12, 0.40);
+    border: 0.5px solid sienna;
+    
+}
+#conversor {
+    color: white;
+    font-family: 'Secular One', sans-serif;
+    font-size: 16px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: white;
+    background: rgba(5, 7, 12, 0.40);
+}

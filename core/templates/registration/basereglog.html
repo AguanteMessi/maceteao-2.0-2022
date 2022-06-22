@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maceteao - Artículos para jardín</title>
+    {%load static%}
+    <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'core/css/stylelogin.css' %}">
+    <link rel="stylesheet" href="{% static 'core/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/bootstrap/js/bootstrap.min.js' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'core/img/flor.png' %}" >
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-xl navbar-dark" style="background-color: 	#008000;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="{% static 'core/img/logo.png' %}" alt="Maceteao" width="80" height="80" class="d-inline-block" >
+              </a>
+              <span class="navbar-brand">
+                <h1 class="display-6"><b>Maceteao</b></h1>
+              </span>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" 
+          aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100x; margin-left: 20px; ">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'productos'%}">Productos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'quienes_somos'%}">Quienes somos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'api' %}">VALORES</a>
+              </li>
+              <li class="nav-item">
+            </li>
+            </ul>
+            <form class="d-flex">
+              <a href="{%url 'login'%}">
+              <button type="button" class="btn btn-success">Login</button>
+              </a>
+              <form class="d-flex">
+                
+                <a href="{%url 'register'%}">
+                  <button type="button" class="btn btn-danger">Registrar</button>
+                </a>
+              <a href="comprar.html" class="nav-link">
+                <img src="{% static 'core/img/carrito.png' %}" alt="carrito">
+              </a>
+              <input class="form-control me-3" type="search" placeholder="Encuentra tu producto" aria-label="Search">
+              <button class="btn btn-outline-light" type="submit">Buscar</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+{%block register%}
+{%endblock register%}
+
+{%block login%}
+{%endblock login%}
+
+</body>
+</html>
+{% block css %}
+{% endblock  %}
+{% block js %}
+{% endblock  %}

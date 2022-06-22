@@ -1,0 +1,48 @@
+
+body {
+    background-image: url('../css/img/sun-pattern.jpg');
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    }
+
+    footer {
+
+    background-color: #CA6510;
+    padding: 25px;
+    margin-top: auto;
+
+    }
+
+
+    footer i {
+        font-size: 30px;
+    }
+
+    .carousel-caption {
+
+    background-color: rgb(202, 101, 16, 0.7);
+    border-radius: 1rem;
+
+    }
+
+    #carrusel {
+
+    margin: 30px auto 30px;
+    
+    }
+
+    #tx_pass{
+        border: 5px solid sienna ;
+
+    }
+    #tx_name{
+        border: 5px solid sienna;
+    }
+    .footer{
+        margin-top: auto;
+
+    }
+
