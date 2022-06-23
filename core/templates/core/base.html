@@ -45,12 +45,13 @@
               <a href="{%url 'login'%}">
               <button type="button" class="btn btn-success">Login</button>
               </a>
-              
-              {% if user.is_authenticated %}
-              <li>
-                <a href="#">Usuario: {{user.username}}</a>
-              </li>
-                  {% endif %}
+
+                  {% if user.is_authenticated %} <li>
+                    <a href="#">Usuario: {{ user.username}}</a>
+                    <li>
+                    <a href="{% url 'logout' %)">Cerrar sesión</a> </li>
+                    {% endif %}
+                    
               
               <form class="d-flex">
 

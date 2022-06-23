@@ -14,7 +14,8 @@
 
 <h2>Autenticación</h2> <form action="" method="POST">
   {% csrf_token %} <table:
-  {{ form.as_table }} </table>
+  {{ form.as_table }}
+ </table>
   <input type="submit" value="Login">
   </form>
   
@@ -25,4 +26,7 @@
   <p class="warnings" id="warnings"></p>
 </form>
 </div>
-{%endblock login%}
+
+
+  
+{% endblock login %}

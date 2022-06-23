@@ -1,5 +1,8 @@
+from dataclasses import dataclass
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+
+from core.forms import CustomUserForm
 from .models import producto
 
 # Create your views here.
@@ -13,7 +16,10 @@ def api(request):
     return render(request,'core/api.html')
 
 def register(request):
-    return render(request,'core/register.html')
+    data = {
+        'form':CustomUserForm()
+    }
+    return render(request,'registration/register.html')
 
 def login(request):
     return render(request,'core/login.html')
@@ -32,6 +38,7 @@ def creditodebito(request):
 @login_required
 
 def agregarprod(request):
+
     return render(request,'core/agregarprod.html')
 
 
