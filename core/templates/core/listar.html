@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/style.css'%}">
+<link rel="stylesheet" href="{% static 'core/bootstrap/css/bootstrap.min.css'%}"
+{% endblock  %}
+{% block list_prod %}
+<h2>Lista de productos</h2>
+<table>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Descripcion</th>
+            <th>Categoria</th>
+        </tr>
+                {% for p in productos %}
+                <tr>
+                    <td>{{ p.nombre }}</td>
+                    <td>{{ p.precio }}</td>
+                    <td>{{ p.descripcion }}</td>
+                    <td>{{ p.categoria }}</td>
+                </tr>
+                {% endfor %}
+</table>
+{% endblock list_prod %}
