@@ -5,7 +5,6 @@ from django.contrib import admin
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls), 
     path('', home, name="home"),
     path('quienes-somos/',quienes_somos, name="quienes_somos" ),
     path('register/',register,name="register"),
@@ -18,4 +17,3 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')), 
     ]
 
-admin.site.site_header = "Administrador de Maceteao"
