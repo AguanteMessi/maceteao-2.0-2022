@@ -1,11 +1,12 @@
 {% extends 'core/base.html' %}
-
+{% load static %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'core/css/style.css'%}">
-<link rel="stylesheet" href="{% static 'core/bootstrap/css/bootstrap.min.css'%}"
+<link rel="stylesheet" href="{% static 'core/bootstrap/css/bootstrap.min.css'%}">
 {% endblock  %}
 {% block list_prod %}
-<h2>Lista de productos</h2>
+<h2>listado</h2>
+
 <table>
         <tr>
             <th>Nombre</th>
