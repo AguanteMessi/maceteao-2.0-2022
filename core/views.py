@@ -1,5 +1,8 @@
+from dataclasses import dataclass
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+
+from core.forms import CustomUserCreationForm
 from .models import producto
 from .forms import productoform
 
@@ -14,7 +17,10 @@ def api(request):
     return render(request,'core/api.html')
 
 def register(request):
-    return render(request,'core/register.html')
+    data = {
+        'form':CustomUserCreationForm()
+    }
+    return render(request,'registration/register.html', data) 
 
 def login(request):
     return render(request,'core/login.html')
@@ -33,6 +39,7 @@ def creditodebito(request):
 @login_required
 
 def agregarprod(request):
+<<<<<<< HEAD
     data={
         'form':productoform()
         }
@@ -41,6 +48,10 @@ def agregarprod(request):
 
 def listar(request):
     return render(request,'core/listar.html')
+=======
+
+    return render(request,'core/agregarprod.html')
+>>>>>>> origin/pedro
 
 
 
