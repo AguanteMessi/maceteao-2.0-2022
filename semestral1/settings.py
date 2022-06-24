@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'colorfield',
     'django.contrib.humanize',
-    'rest_framework'
 ]
 # only if django version >= 3.0
 X_FRAME_OPTIONS = 'SAMEORIGIN'

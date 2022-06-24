@@ -39,7 +39,6 @@ def creditodebito(request):
 @login_required
 
 def agregarprod(request):
-<<<<<<< HEAD
     data={
         'form':productoform()
         }
@@ -48,10 +47,6 @@ def agregarprod(request):
 
 def listar(request):
     return render(request,'core/listar.html')
-=======
-
-    return render(request,'core/agregarprod.html')
->>>>>>> origin/pedro
 
 
 
