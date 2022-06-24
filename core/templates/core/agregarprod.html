@@ -13,8 +13,10 @@
 {% comment %} https://coffeebytes.dev/como-subir-multiples-imagenes-en-django/ {% endcomment %}
 <div class="form">
     <h2> agregar producto </h2>
-    <form action="">
-    {{form}}
+    <form action="{{ path('agregar_producto') }}" method="post" enctype="multipart/form-data">
+        {{form}}
+
+        <input type="submit" value="Agregar">
     </form>
 </div>
 {% endblock agregar %}
