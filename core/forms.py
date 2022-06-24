@@ -5,5 +5,5 @@ from .models import producto
 import datetime 
 from django.contrib.auth.forms import UserCreationForm
 
-class CustomUserForm(UserCreationForm): 
+class CustomUserCreationForm(UserCreationForm): 
     pass 

@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
-from core.forms import CustomUserForm
+from core.forms import CustomUserCreationForm
 from .models import producto
 
 # Create your views here.
@@ -17,9 +17,9 @@ def api(request):
 
 def register(request):
     data = {
-        'form':CustomUserForm()
+        'form':CustomUserCreationForm()
     }
-    return render(request,'registration/register.html')
+    return render(request,'registration/register.html', data) 
 
 def login(request):
     return render(request,'core/login.html')
