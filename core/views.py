@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 from core.forms import CustomUserCreationForm
 from .models import producto
+from .forms import productoform
 
 # Create your views here.
 def home(request):
@@ -38,8 +39,19 @@ def creditodebito(request):
 @login_required
 
 def agregarprod(request):
+<<<<<<< HEAD
 
     return render(request,'core/agregarprod.html')
+=======
+    data={
+        'form':productoform()
+        }
+    return render(request,'core/agregarprod.html',data)
+
+
+def listar(request):
+    return render(request,'core/listar.html')
+>>>>>>> origin/LUIS
 
 
 
