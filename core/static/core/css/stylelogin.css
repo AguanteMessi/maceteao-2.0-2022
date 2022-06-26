@@ -74,3 +74,13 @@ footer i {
     color: red;
     padding-top: 20px;
 }
+h2 {
+    font-family: 'Secular One', sans-serif;
+    font-size: large;
+    color: white;
+}
+label {
+    font-family: 'Secular One', sans-serif;
+    font-size: small;
+    color: white;
+}

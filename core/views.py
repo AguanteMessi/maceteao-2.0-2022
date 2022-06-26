@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-
 from core.forms import CustomUserCreationForm
 from .models import producto
 from .forms import productoform
@@ -36,15 +35,18 @@ def comprar(request):
 def creditodebito(request):
     return render(request,'core/creditodebito.html')
 
-@login_required
+
 
 def agregarprod(request):
-    data={
-        'form':productoform()
-        }
+    data={'form':productoform()}
+    if request.method=='POST':
+        form=productoform(request.POST)
+        if form.is_valid():
+            form.save()
+            data['mensaje']='Producto agregado correctamente'
     return render(request,'core/agregarprod.html',data)
 
-
+@login_required
 def listar(request):
     return render(request,'core/listar.html')
 

@@ -7,7 +7,11 @@
     <title>Maceteao - Artículos para jardín</title>
     {% load static %}
     <link rel="icon" type="image/x-icon" href="{% static 'core/img/flor.png'%}" >
-    
+    <link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+integrity="sha384-
+TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+crossorigin="anonymous">
 </head>
 
 <body>
@@ -85,6 +89,7 @@
       {% block creditodebito %}
       {% endblock creditodebito  %}
       {% block list_prod %}{% endblock list_prod %}
+
     <footer class="footer">
       <div class="row justify-content-around text-light">
         <div class="col-md-4 my-auto">
