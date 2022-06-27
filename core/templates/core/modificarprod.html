@@ -1,0 +1,15 @@
+{% extends 'baseapi.html' %}
+{% block modificar %}
+<h2>Modificar</h2>
+<form action="" method="POST">
+{% csrf_token %}
+<table>
+    {{form.as_table}}
+    <table>
+        <tr>
+            <td><input type="submit" value="Modificar"></td>
+        </tr>
+    </table>
+</form>
+{{mensaje}}
+{% endblock modificar %}

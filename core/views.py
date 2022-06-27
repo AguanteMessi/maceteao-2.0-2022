@@ -1,9 +1,10 @@
 from dataclasses import dataclass
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from core.forms import CustomUserCreationForm
 from .models import producto
 from .forms import productoform
+
 
 # Create your views here.
 def home(request):
@@ -35,7 +36,13 @@ def comprar(request):
 def creditodebito(request):
     return render(request,'core/creditodebito.html')
 
+def listar(request):
+    productos=producto.objects.all()
+    data={'productos':productos}
+    return render(request,'core/listar.html',data)
 
+
+@login_required
 
 def agregarprod(request):
     data={'form':productoform()}
@@ -46,9 +53,20 @@ def agregarprod(request):
             data['mensaje']='Producto agregado correctamente'
     return render(request,'core/agregarprod.html',data)
 
-@login_required
-def listar(request):
-    return render(request,'core/listar.html')
 
 
+def modificarprod(request,id):
+    productos=producto.objects.get(id=id)
+    data={'form':productoform(instance=productos)}
+    if request.method=='POST':
+        form=productoform(data=request.POST,instance=productos)
+        if form.is_valid():
+            form.save()
+            data['mensaje']='Producto modificado correctamente'
+            data['form']=form
+    return render(request,'core/modificarprod.html',data)
 
+def eliminarprod(request,id):
+    productos=producto.objects.get(id=id)
+    producto.delete()
+    return redirect('listar')
