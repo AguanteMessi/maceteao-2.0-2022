@@ -1,12 +1,16 @@
 from dataclasses import dataclass
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
-
-from core.forms import CustomUserCreationForm
 from .models import producto
-from .forms import productoform
+from .forms import CustomUserForm, productoform
+from django.contrib.auth import login, authenticate 
+from django.contrib import messages
+
 
 # Create your views here.
+
+
+
 def home(request):
     return render(request, 'core/home.html')
 
@@ -16,14 +20,25 @@ def quienes_somos(request):
 def api(request):
     return render(request,'core/api.html')
 
+
 def register(request):
     data = {
-        'form':CustomUserCreationForm()
+        'form':CustomUserForm()
     }
-    return render(request,'registration/register.html', data) 
+    if request.method == 'POST':
+        formulario = CustomUserForm(request.POST)
+        if formulario.is_valid():
+            formulario.save();
+            username = formulario.cleaned_data['username']
+            password = formulario.cleaned_data['password1']
+            user = authenticate (username=username, password=password)
+            login(request, user)
+            return redirect(to='home')
+
+    return render(request, "registration/register.html", data)
 
 def login(request):
-    return render(request,'core/login.html')
+    return render(request,'registration/login.html')
 
 def productos(request):
     productos= producto.objects.all()
@@ -36,13 +51,11 @@ def comprar(request):
 def creditodebito(request):
     return render(request,'core/creditodebito.html')
 
-@login_required
 
+@login_required
 def agregarprod(request):
-<<<<<<< HEAD
 
     return render(request,'core/agregarprod.html')
-=======
     data={
         'form':productoform()
         }
@@ -51,7 +64,6 @@ def agregarprod(request):
 
 def listar(request):
     return render(request,'core/listar.html')
->>>>>>> origin/LUIS
 
 
 
