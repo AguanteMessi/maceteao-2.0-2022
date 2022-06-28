@@ -33,12 +33,8 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'colorfield',
     'django.contrib.humanize',
-<<<<<<< HEAD
     'crispy_forms',
     ]
-=======
-]
->>>>>>> origin/pedro
 # only if django version >= 3.0
 crispy_template_pack='bootstrap5'
 X_FRAME_OPTIONS = 'SAMEORIGIN'

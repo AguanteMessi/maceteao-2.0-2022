@@ -45,7 +45,7 @@ crossorigin="anonymous">
               <li class="nav-item">
             </li>
             </ul>
-(            <form class="d-flex">
+        <form class="d-flex">
               <a href="{%url 'login'%}">
               <button type="button" class="btn btn-success">Login</button>
               </a>
@@ -53,7 +53,7 @@ crossorigin="anonymous">
                   {% if user.is_authenticated %} <li>
                     <a href="#">Usuario: {{ user.username}}</a>
                     <li>
-                    <a href="{% url 'logout' %)">Cerrar sesión</a> </li>
+                    <a href="{% url 'logout' %}">Cerrar sesión</a> </li>
                     {% endif %}
                     
               

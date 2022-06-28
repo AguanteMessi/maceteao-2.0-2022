@@ -16,12 +16,8 @@ urlpatterns = [
     path('creditodebito/',creditodebito, name="creditodebito"),
     path('agregarprod/',agregarprod, name="agregarprod"),
     path('accounts/', include('django.contrib.auth.urls')),
-<<<<<<< HEAD
     path('listar',listar,name="listar"),
     path('modificarprod/<id>',modificarprod, name="modificarprod"),
     path('eliminarprod/<id>',eliminarprod, name="eliminarprod"),
-=======
-    path('listar/',listar,name="listar"),
->>>>>>> origin/pedro
     ]
 
