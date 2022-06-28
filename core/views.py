@@ -9,6 +9,13 @@ from django.contrib import messages
 
 
 
+from rest_framework import viewsets
+from .serializer import ProductoSerializer
+
+class ProductoViewset(viewsets.ModelViewSet):
+    queryset = producto.objects.all()
+    serializer_class = ProductoSerializer
+
 # Create your views here.
 
 
@@ -68,6 +75,8 @@ def agregarprod(request):
             data['mensaje']='Error al agregar el producto'
     return render(request,'core/agregarprod.html',data)
 
+def convertidor(request):
+    return render(request,'core/convertidor.html')
 
 
 def modificarprod(request,id):
