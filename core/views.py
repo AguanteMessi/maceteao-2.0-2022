@@ -1,9 +1,10 @@
 from dataclasses import dataclass
-from django.shortcuts import redirect, render
-from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib.auth.decorators import login_required, permission_required
 from core.forms import CustomUserCreationForm
 from .models import producto
 from .forms import productoform
+
 
 
 # Create your views here.
@@ -44,13 +45,16 @@ def listar(request):
 
 @login_required
 
+@permission_required('core.add_producto')
 def agregarprod(request):
     data={'form':productoform()}
     if request.method=='POST':
-        form=productoform(request.POST)
+        form=productoform(data=request.POST,files=request.FILES)
         if form.is_valid():
             form.save()
             data['mensaje']='Producto agregado correctamente'
+        else :
+            data['mensaje']='Error al agregar el producto'
     return render(request,'core/agregarprod.html',data)
 
 
@@ -59,14 +63,14 @@ def modificarprod(request,id):
     productos=producto.objects.get(id=id)
     data={'form':productoform(instance=productos)}
     if request.method=='POST':
-        form=productoform(data=request.POST,instance=productos)
+        form=productoform(data=request.POST,instance=productos,files=request.FILES)
         if form.is_valid():
             form.save()
-            data['mensaje']='Producto modificado correctamente'
-            data['form']=form
+            return redirect(to='listar')
+        data['form']=form
     return render(request,'core/modificarprod.html',data)
 
 def eliminarprod(request,id):
     productos=producto.objects.get(id=id)
-    producto.delete()
-    return redirect('listar')
+    productos.delete()
+    return redirect(to='listar')
