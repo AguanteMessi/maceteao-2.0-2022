@@ -12,20 +12,13 @@
 
 
 
-<div class="form">
-<form action="" method="post" id="form" class="form">
-  <h2>   Inicia sesión</h2>
-  <label for="tx_name"><h6>Nombre</h6></label>
-  <br>
-  <input  class="input" type="name" id="name">
-  <br>
-  <br>
-<label for="tx_pass"><h6>Contraseña</h6></label>
-<br>
-<input class="input" type="password" name="pass" id="pass">
-<br>
-<button type="submit">login</button>
-<br>
+<h2>Autenticación</h2> <form action="" method="POST">
+  {% csrf_token %} <table:
+  {{ form.as_table }}
+ </table>
+  <input type="submit" value="Login">
+  </form>
+  
   <a href="" class="forgetpw">¿olvidaste tu contraseña?</a>
   <br>
   <h6 class="registrarcuenta">¿No tienes cuenta?</h6>
@@ -33,4 +26,7 @@
   <p class="warnings" id="warnings"></p>
 </form>
 </div>
-{%endblock login%}
+
+
+  
+{% endblock login %}
