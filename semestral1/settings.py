@@ -33,13 +33,8 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'colorfield',
     'django.contrib.humanize',
-<<<<<<< Updated upstream
-    'crispy_forms',
-    ]
-=======
     'rest_framework',
 ]
->>>>>>> Stashed changes
 # only if django version >= 3.0
 crispy_template_pack='bootstrap5'
 X_FRAME_OPTIONS = 'SAMEORIGIN'
