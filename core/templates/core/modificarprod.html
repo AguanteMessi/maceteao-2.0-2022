@@ -1,0 +1,24 @@
+{% extends 'core/baseapi.html' %}
+{% block modificar %}
+{% load static %}
+<h2>Modificar</h2>
+<form action="" method="POST">
+{% csrf_token %}
+<table>
+    {{form.as_table}}
+    <table>
+        <tr>
+            <td><input type="submit" value="Modificar"></td>
+        </tr>
+    </table>
+</form>
+{{mensaje}}
+{% block jsa %}
+<script src= "{% static 'core/bootstrap/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'core/js/agregar.js' %}"></script>
+{% endblock jsa %}
+{% block cssa %}
+<link rel="stylesheet" href="{% static 'core/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'core/css/stylelogin.css' %}">
+{% endblock cssa %}
+{% endblock modificar %}

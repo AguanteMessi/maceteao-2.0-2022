@@ -33,9 +33,10 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'colorfield',
     'django.contrib.humanize',
-    'rest_framework'
-]
+    'crispy_forms',
+    ]
 # only if django version >= 3.0
+crispy_template_pack='bootstrap5'
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 SILENCED_SYSTEM_CHECKS = ["security.W019"]
 

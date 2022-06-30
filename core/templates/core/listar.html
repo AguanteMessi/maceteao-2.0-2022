@@ -1,0 +1,46 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/style.css'%}">
+<link rel="stylesheet" href="{% static 'core/bootstrap/css/bootstrap.min.css'%}">
+{% endblock css %}
+{% block listado %}
+{% comment %} listado producto {% endcomment %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Listado de Productos</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for producto in productos %}
+                            <tr>
+                                <td>{{producto.id}}</td>
+                                <td>{{producto.nombre}}</td>
+                                <td>{{producto.precio}}</td>
+                                <td>{{producto.cantidad}}</td>
+                                <td>
+                                    <a href="{% url 'modificarprod' producto.id %} " class="btn btn-primary">Editar</a>
+                                    <a href=" {% url 'eliminarprod' producto.id %} " class="btn btn-danger">Eliminar</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock listado %}
