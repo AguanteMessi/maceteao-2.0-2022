@@ -69,7 +69,7 @@ def agregarprod(request):
     return render(request,'core/agregarprod.html',data)
 
 
-
+@permission_required('core.modificarprod')
 def modificarprod(request,id):
     productos=producto.objects.get(id=id)
     data={'form':productoform(instance=productos)}
@@ -80,7 +80,7 @@ def modificarprod(request,id):
             return redirect(to='listar')
         data['form']=form
     return render(request,'core/modificarprod.html',data)
-
+@permission_required ('core.eliminarprod')
 def eliminarprod(request,id):
     productos=producto.objects.get(id=id)
     productos.delete()
