@@ -58,7 +58,9 @@ def listar(request):
 
 @permission_required('core.add_producto')
 def agregarprod(request):
-    data={'form':productoform()}
+    data={'form':productoform()
+    }
+
     if request.method=='POST':
         form=productoform(data=request.POST,files=request.FILES)
         if form.is_valid():
@@ -72,7 +74,9 @@ def agregarprod(request):
 
 def modificarprod(request,id):
     productos=producto.objects.get(id=id)
-    data={'form':productoform(instance=productos)}
+    data={
+        'form':productoform(instance=productos)
+    }
     if request.method=='POST':
         form=productoform(data=request.POST,instance=productos,files=request.FILES)
         if form.is_valid():
