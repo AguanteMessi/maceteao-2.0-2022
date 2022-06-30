@@ -15,6 +15,7 @@ class productoform(ModelForm):
         fields=['nombre','precio','descripcion','categoria','imagen']
         
    
+        
 
 
 class CustomUserForm(UserCreationForm): 

@@ -5,9 +5,12 @@ from .models import producto
 from .forms import CustomUserForm, productoform
 from django.contrib.auth import login, authenticate 
 from django.contrib import messages
+from rest_framework import viewsets
+from .serializer import ProductoSerializer
 
-
-
+class ProductoViewset(viewsets.ModelViewSet):
+    queryset = producto.objects.all()
+    serializer_class = ProductoSerializer
 
 # Create your views here.
 
@@ -69,8 +72,30 @@ def agregarprod(request):
         else :
             data['mensaje']='Error al agregar el producto'
     return render(request,'core/agregarprod.html',data)
+    data={'form':productoform()}
+    if request.method=='POST':
+        form=productoform(data=request.POST,files=request.FILES)
+        if form.is_valid():
+            form.save()
+            data['mensaje']='Producto agregado correctamente'
+        else :
+            data['mensaje']='Error al agregar el producto'
+    return render(request,'core/agregarprod.html',data)
+
+def convertidor(request):
+    return render(request,'core/convertidor.html')
 
 
+def modificarprod(request,id):
+    productos=producto.objects.get(id=id)
+    data={'form':productoform(instance=productos)}
+    if request.method=='POST':
+        form=productoform(data=request.POST,instance=productos,files=request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(to='listar')
+        data['form']=form
+    return render(request,'core/modificarprod.html',data)
 
 def modificarprod(request,id):
     productos=producto.objects.get(id=id)
