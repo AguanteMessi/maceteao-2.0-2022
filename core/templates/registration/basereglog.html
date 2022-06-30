@@ -16,7 +16,7 @@
     
     <nav class="navbar navbar-expand-xl navbar-dark" style="background-color: 	#008000;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{%url 'home'%}">
                 <img src="{% static 'core/img/logo.png' %}" alt="Maceteao" width="80" height="80" class="d-inline-block" >
               </a>
               <span class="navbar-brand">
@@ -38,7 +38,7 @@
                 <a class="nav-link" href="{%url 'quienes_somos'%}">Quienes somos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'api' %}">VALORES</a>
+                <a class="nav-link" href="{% url 'convertidor' %}">VALORES</a>
               </li>
               <li class="nav-item">
             </li>
