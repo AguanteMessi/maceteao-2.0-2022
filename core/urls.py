@@ -1,6 +1,9 @@
 from xml.etree.ElementInclude import include
 from .views import convertidor, home, listar,  quienes_somos, convertidor, register, login, productos, comprar, creditodebito, agregarprod,listar, modificarprod, eliminarprod
 from django.urls import path, include
+from django.db import router
+from django.urls import path
+from django.urls.conf import include
 from django.contrib import admin 
 from os import name
 from django.db import router

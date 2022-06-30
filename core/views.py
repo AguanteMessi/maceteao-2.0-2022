@@ -12,6 +12,7 @@ class ProductoViewset(viewsets.ModelViewSet):
     queryset = producto.objects.all()
     serializer_class = ProductoSerializer
 
+
 # Create your views here.
 
 
