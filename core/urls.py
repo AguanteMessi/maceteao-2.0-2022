@@ -22,7 +22,12 @@ urlpatterns = [
     path('agregarprod/',agregarprod, name="agregarprod"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('listar',listar,name="listar"),
+<<<<<<< HEAD
     path('api/', include(router.urls)),
     path('convertidor/',convertidor,name="convertidor"),
+=======
+    path('modificarprod/<id>',modificarprod, name="modificarprod"),
+    path('eliminarprod/<id>',eliminarprod, name="eliminarprod"),
+>>>>>>> origin/pedro
     ]
 
