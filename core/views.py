@@ -93,6 +93,7 @@ def modificarprod(request,id):
             return redirect(to='listar')
         data['form']=form
     return render(request,'core/modificarprod.html',data)
+    
 @permission_required ('core.eliminarprod')
 def eliminarprod(request,id):
     productos=producto.objects.get(id=id)
