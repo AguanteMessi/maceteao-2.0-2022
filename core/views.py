@@ -5,9 +5,17 @@ from .models import producto
 from .forms import CustomUserForm, productoform
 from django.contrib.auth import login, authenticate 
 from django.contrib import messages
+from cart.cart import Cart
 
 
 
+
+from rest_framework import viewsets
+from .serializer import ProductoSerializer
+
+class ProductoViewset(viewsets.ModelViewSet):
+    queryset = producto.objects.all()
+    serializer_class = ProductoSerializer
 
 # Create your views here.
 
@@ -55,6 +63,9 @@ def listar(request):
 
 
 @login_required
+def cartdetail(request):
+    cart=Cart(request)
+    return render(request,'core/cartdetail.html',{'cart':cart})
 
 @permission_required('core.add_producto')
 def agregarprod(request):
@@ -68,6 +79,8 @@ def agregarprod(request):
             data['mensaje']='Error al agregar el producto'
     return render(request,'core/agregarprod.html',data)
 
+def convertidor(request):
+    return render(request,'core/convertidor.html')
 
 @permission_required('core.modificarprod')
 def modificarprod(request,id):
@@ -80,8 +93,55 @@ def modificarprod(request,id):
             return redirect(to='listar')
         data['form']=form
     return render(request,'core/modificarprod.html',data)
+    
 @permission_required ('core.eliminarprod')
 def eliminarprod(request,id):
     productos=producto.objects.get(id=id)
     productos.delete()
     return redirect(to='listar')
+
+
+
+
+@login_required(login_url="registration/login/")
+def cart_add(request, id):
+    cart = Cart(request)
+    producto = producto.objects.get(id=id)
+    cart.add(producto=producto)
+    return redirect("home")
+
+
+@login_required(login_url="registration/login/")
+def item_clear(request, id):
+    cart = Cart(request)
+    producto = producto.objects.get(id=id)
+    cart.remove(producto)
+    return redirect("cart_detail")
+
+
+@login_required(login_url="/users/login")
+def item_increment(request, id):
+    cart = Cart(request)
+    producto = producto.objects.get(id=id)
+    cart.add(producto=producto)
+    return redirect("cart_detail")
+
+
+@login_required(login_url="/users/login")
+def item_decrement(request, id):
+    cart = Cart(request)
+    producto = producto.objects.get(id=id)
+    cart.decrement(producto = producto)
+    return redirect("cart_detail")
+
+
+@login_required(login_url="/users/login")
+def cart_clear(request):
+    cart = Cart(request)
+    cart.clear()
+    return redirect("cart_detail")
+
+
+@login_required(login_url="/users/login")
+def cart_detail(request):
+    return render(request, 'core/cartdetail.html')

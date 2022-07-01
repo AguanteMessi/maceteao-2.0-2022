@@ -84,3 +84,15 @@ label {
     font-size: small;
     color: white;
 }
+li
+{
+    font-family: 'Secular One', sans-serif;
+    font-size: large;
+    color: white;
+
+}
+.helptext{
+    font-family: 'Secular One', sans-serif;
+    font-size: large;
+    color: white;
+}
