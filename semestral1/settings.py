@@ -1,4 +1,5 @@
 
+from multiprocessing import context
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -33,8 +34,14 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'colorfield',
     'django.contrib.humanize',
+    'crispy_forms',
     'rest_framework',
+    'cart',
+    ]
+context_processors = [
+    'cart.context_processors.cart_total_amount',
 ]
+CART_SESSION_ID = 'cart'
 # only if django version >= 3.0
 crispy_template_pack='bootstrap5'
 X_FRAME_OPTIONS = 'SAMEORIGIN'

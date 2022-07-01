@@ -1,6 +1,6 @@
 
 from django.db import router
-from .views import home, listar, quienes_somos,register, login, productos, comprar, creditodebito, convertidor, agregarprod,listar
+from .views import cart_add, cart_clear, cartdetail, eliminarprod, home, item_clear, item_decrement, item_increment, listar, modificarprod, quienes_somos,register, login, productos, comprar, creditodebito, convertidor, agregarprod,listar, api
 from django.urls import path
 from django.urls.conf import include
 from django.contrib import admin 
@@ -24,5 +24,14 @@ urlpatterns = [
     path('listar',listar,name="listar"),
     path('api/', include(router.urls)),
     path('convertidor/',convertidor,name="convertidor"),
+    path('modificarprod/<id>',modificarprod, name="modificarprod"),
+    path('eliminarprod/<id>',eliminarprod, name="eliminarprod"),
+    path('cart/add/<int:id>/', cart_add , name='cart_add'),
+    path('cart/item_clear/<int:id>/', item_clear , name='item_clear'),
+    path('cart/item_increment/<int:id>/', item_increment , name='item_increment'),
+    path('cart/item_decrement/<int:id>/', item_decrement , name='item_decrement'),
+    path('cart/cart_clear/', cart_clear , name='cart_clear'),
+    path('cart/cartdetail/', cartdetail ,name='cartdetail'),
     ]
+
 
