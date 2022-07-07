@@ -36,11 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'crispy_forms',
     'rest_framework',
-    'cart',
     ]
-context_processors = [
-    'cart.context_processors.cart_total_amount',
-]
 CART_SESSION_ID = 'cart'
 # only if django version >= 3.0
 crispy_template_pack='bootstrap5'
@@ -83,11 +79,13 @@ WSGI_APPLICATION = 'semestral1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': '127.0.0.1:1521/xe',
+        'USER': 'maceteao',
+        'PASSWORD': 'maceta',
+
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

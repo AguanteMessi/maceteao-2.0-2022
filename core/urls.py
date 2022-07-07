@@ -24,8 +24,6 @@ urlpatterns = [
     path('listar',listar,name="listar"),
     path('api/', include(router.urls)),
     path('convertidor/',convertidor,name="convertidor"),
-    path('modificarprod/<id>',modificarprod, name="modificarprod"),
-    path('eliminarprod/<id>',eliminarprod, name="eliminarprod"),
     ]
 
 
